@@ -1,6 +1,7 @@
 // import modules
 const express = require('express')
 const cors = require('cors')
+const checkTokenMiddleware = require('./jsonwebtoken/check')
 
 // import connexion DB
 let DB = require('./db.config')
@@ -19,7 +20,7 @@ const auth_router = require('./routes/auth.routes')
 // mise en place routage
 app.get('/', (req, res) => res.send("i'm on"))
 
-app.use('/users', user_router)
+app.use('/users',checkTokenMiddleware, user_router)
 
 app.use('/auth', auth_router)
 

@@ -1,44 +1,44 @@
-// Import des module nécessaires
+// import des modules
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
 const User = require('../models/user.models')
 
-// Routage de la ressource Auth */
-exports.login = async (req, res) => {
-    const { email, password } = req.body
 
-    // Validation des données reçues
-    if(!email || !password){
-        return res.status(400).json({ message: 'Bad email or password'})
-    }
+// routage de la ressource User
+exports.signup = (req, res, next) => {
+  bcrypt.hash(req.body.password, 10)
+    .then(hash => {
+      const user = new User({
+        email: req.body.email,
+        password: hash
+      });
+      user.save()
+        .then(() => res.status(201).json({ message: 'Utilisateur crée' }))
+        .catch(error => res.status(400).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
+};
 
-    try{
-        // Vérification si l'utilisateur existe
-        let user = await User.findOne({ where: {email: email}, raw: true})
-        if(user === null){
-            return res.status(401).json({ message: 'This account does not exists !'})
-        }
-
-        // Vérification du mot de passe
-        let test = await bcrypt.compare(password, user.password)
-        if(!test){
-            return res.status(401).json({ message: 'Wrong password'})
-        }
-
-        // Génération du token et envoi
-        const token = jwt.sign({
-            id: user.id,
-            nom: user.nom,
-            prenom: user.prenom,
-            email: user.email
-        }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_DURING})
-
-        return res.json({access_token: token})
-    }catch(err){
-        if(err.name == 'SequelizeDatabaseError'){
-            res.status(500).json({ message: 'Database Error', error: err })
-        }
-        res.status(500).json({ message: 'Login process failed', error: err})        
-    }
-}
+exports.login = (req, res, next) => {
+  User.findOne({ email: req.body.email })
+    .then(user => {
+      if (!user) {
+        return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+      }
+      bcrypt.compare(req.body.password, user.password)
+        .then(valid => {
+          if (!valid) {
+            return res.status(401).json({ error: 'Mot de passe incorrect !' });
+          }
+          res.status(200).json({
+            userId: user._id,
+            token: jwt.sign(
+              { userId: user._id },process.env.JWT_SECRET,
+              { expiresIn: process.env.JWT_DURING }
+            )
+          });
+        })
+        .catch(error => res.status(500).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
+};
