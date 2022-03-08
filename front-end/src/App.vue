@@ -1,7 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <router-view />
-  <!-- Site footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -55,6 +54,7 @@ input {
   margin-left: 5px;
   display: flex;
   margin-bottom: 10px;
+  padding-left: 5px;
 }
 .form__cartouche {
   text-align: -webkit-center;
@@ -66,7 +66,7 @@ button {
   text-decoration: none;
   background: #ffffff;
   padding: 10px;
-  border: 4px solid #494949 !important;
+  border: 2px solid #494949 !important;
   display: inline-block;
   transition: all 0.4s ease 0s;
   margin-top: 20px;
@@ -100,13 +100,22 @@ button:hover {
   letter-spacing: 2px;
 }
 
-.user_menu{
-    display: flex;
-    flex-direction: column;
-    margin-left: 25%;
-    margin-right: 25%;
+.user_menu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+  margin-right: 25%;
 }
-.modifyInfo{
-  border-radius: 5em;;
+.modifyInfo {
+  border-radius: 5em;
+}
+a {
+  text-decoration: none;
+  color: #494949 !important;
+}
+a:hover
+{
+text-decoration: underline;
+color: #224061;
 }
 </style>
