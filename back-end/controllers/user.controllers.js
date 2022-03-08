@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 const User = require('../models/user.models')
 
-// Routage de la ressource User
+// Routage de la ressource User 
 
 exports.getAllUsers = (req, res) => {
     User.findAll()
@@ -33,24 +33,21 @@ exports.getUser = async (req, res) => {
 }
 
 exports.addUser = (req, res) => {
-    const { nom, prenom, pseudo, email, password } = req.body
-
+    const { firstname, name, email, password } = req.body
     // validation des donné recu
-    if (!nom || !prenom || !pseudo || !email || !password) {
+    if (!name || !firstname || !email || !password) {
         return res.status(400).json({ message: 'Missing data' })
     }
     User.findOne({ where: { email: email }, raw: true })
         .then(user => {
             // verification si l'utilisateur existe deja
             if (user !== null) {
-                return res.status(400).json({ message: 'the user ${nom} already exists !' })
+                return res.status(400).json({ message: 'the user ${pseudo} already exists !' })
             }
-
             // hashage du mot de passe
             bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
                 .then(hash => {
                     req.body.password = hash
-
                     //creation de l'utilisateur
                     User.create(req.body)
                         .then(user => res.json({ message: 'User created', data: user }))
@@ -58,7 +55,6 @@ exports.addUser = (req, res) => {
                 })
                 .catch(err => res.status(500).json({ message: "hash process error", error: err }))
         }).catch(err => res.status(500).json({ message: "Database error", error: err }))
-
 }
 
 exports.updateUser = async (req, res) => {

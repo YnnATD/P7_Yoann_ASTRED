@@ -9,20 +9,13 @@ const User = DB.define('User', {
         primaryKey: true,
         autoIncrement: true
     },
-    nom:{
-        type: DataTypes.STRING(100),
-        defaultValue: '',
-        allowNull: false
-    },
-    prenom:{
-        type: DataTypes.STRING(100),
-        defaultValue: '',
-        allowNull: false
-    },
-    pseudo:{
+    name:{
         type: DataTypes.STRING(100),
         allowNull: false,
-        unique: true
+    },
+    firstname:{
+        type: DataTypes.STRING(100),
+        allowNull: false,
     },
     email:{
         type: DataTypes.STRING,
@@ -39,6 +32,6 @@ const User = DB.define('User', {
 // Synchronisation du modèle
 //User.sync()
 //User.sync({force: true})
-//User.sync({alter: true})
+User.sync({alter: true})
 
 module.exports = User
