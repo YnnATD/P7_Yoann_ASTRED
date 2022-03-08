@@ -33,7 +33,7 @@ Démarrer le serveur sur le dossier front-end.
 exemple :
 
 ```sh
-cd back-end
+cd front-end
 npm run serve
 ```
 
