@@ -31,8 +31,11 @@
 
 
 <script>
+// import des modules
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+
+// récupération des data des input
 export default {
   name: "Modify",
   data() {
@@ -45,18 +48,19 @@ export default {
   },
   methods: {
     modify() {
+      // traitement des data
       let profileDatas = {
         name: this.profile.name,
         firstname: this.profile.firstname,
       };
-
+      // recherche du user
       let userId = 0;
       let token = localStorage.getItem("token");
       if (token) {
         let decode = jwt_decode(token);
         userId = decode.id;
       }
-
+      // envoie des data a la DB retour sur la page profile
       let url = `http://localhost:8000/users/${userId}`;
       axios
         .patch(url, profileDatas)

@@ -228,5 +228,8 @@ input[type="password"] {
   width: 100px;
   height: 75px;
   }
+  .top_logo{
+    width: 80%;
+  }
 }
 </style>

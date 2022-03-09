@@ -28,7 +28,10 @@
 
 
 <script>
+// import des modules
 import axios from 'axios'
+
+// récupération des data des input
 export default {
     name: 'Signup',
     data() {
@@ -43,6 +46,7 @@ export default {
     },
     methods: {
         signup() {
+            // traitement des data
             let signupDatas = {
                 "name": this.signupInput.name,
                 "firstname": this.signupInput.firstName,
@@ -50,6 +54,7 @@ export default {
                 "password": this.signupInput.password
             }
             console.log(signupDatas)
+            // envoie des data a la DB retour sur la page login
             let url = "http://localhost:8000/users"
             axios.put(url, signupDatas)
                 .then((res) => {

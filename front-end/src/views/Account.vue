@@ -11,9 +11,11 @@
 </template>
 
 <script>
+// import des modules
 import UserMenu from "../components/UserMenu";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+
 export default {
   name: "Account",
   components: {
@@ -60,5 +62,16 @@ ul {
   box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
   background-color: white;
   margin-bottom: 25%;
+}
+@media screen and (max-width: 580px) {
+  .account_setup{
+    margin: 0px;
+    margin-bottom: 10em;
+    background-color: white;
+    border-radius: 2em;
+    padding: 70px 0px;
+    border-radius: 2em;
+  }
+  
 }
 </style>

@@ -23,7 +23,10 @@
 
 
 <script>
+// import des modules
 import axios from "axios";
+
+// récupération des data des input
 export default {
   name: "login",
   data() {
@@ -36,11 +39,13 @@ export default {
   },
   methods: {
     signin() {
+      // traitement des data
       let signinDatas = {
         email: this.signinInput.mail,
         password: this.signinInput.password,
       };
       console.log(signinDatas);
+      // envoie des data a la DB retour sur la page account
       let url = "http://localhost:8000/auth/login";
       axios
         .post(url, signinDatas)
