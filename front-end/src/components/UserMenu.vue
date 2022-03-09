@@ -1,9 +1,7 @@
 <template>
   <div class="user_menu">
-    <button class="modifyInfo"><router-link to="/edit">Modifier mes informations</router-link></button>
-    <button>
-      <router-link to="/" @click="deconnect">Se déconnecter</router-link>
-    </button>
+    <router-link to="/edit"><button class="modifyInfo">Modifier mes informations</button></router-link>
+      <router-link to="/" @click="deconnect"><button>Se déconnecter</button></router-link>
   </div>
 </template>
 

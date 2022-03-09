@@ -3,7 +3,7 @@
     <div class="account_setup">
       <h2>
         Bienvenue sur votre espace personnel <br />
-        {{ userAccount.firstName }} {{ userAccount.name }}
+        "{{ userAccount.firstName }} {{ userAccount.name }}"
       </h2>
       <UserMenu></UserMenu>
     </div>

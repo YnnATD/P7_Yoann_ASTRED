@@ -1,5 +1,7 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+<a href="/" >
+  <img class="top_logo" alt="logo top grouporama" src="./assets/logo.png" />
+</a>
   <router-view />
   <footer class="site-footer">
     <div class="container">
@@ -14,7 +16,22 @@
           </p>
         </div>
       </div>
-      <hr />
+      <hr/>
+                  <h6>Link</h6>      
+      <div class="footer_link">
+        <div class="netlink">
+          <a href="https://github.com/YnnATD/P7_Yoann_ASTRED" >
+      <img class="footer_logo" alt="logo github" src="./assets/logogithub.png">
+      </a>
+      <a class="footer_netlink" href="https://github.com/YnnATD/P7_Yoann_ASTRED">Repositorie github</a>
+      </div>
+        <div class="netlink">      
+          <a href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P7/Groupomania_Specs_FR_DWJ_VF.pdf" >
+        <img class="footer_logo" alt="logo top grouporama" src="./assets/logogroupo.png" />
+        </a>
+      <a class="footer_netlink" href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P7/Groupomania_Specs_FR_DWJ_VF.pdf">Spécifications fonctionnelles</a>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
@@ -35,30 +52,13 @@ body {
   text-align: center;
   color: #2c3e50;
 }
-img {
+
+/*** IMAGE TOP  ***/
+.top_logo {
   height: 300px;
 }
-.login_signup_setup {
-  padding-bottom: 60px;
-  padding-top: 15px;
-  margin-left: 25%;
-  margin-right: 25%;
-  border-radius: 5%;
-  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
-  background-color: white;
-  margin-bottom: 25%;
-}
-input {
-  border: solid 1px;
-  border-radius: 10px;
-  margin-left: 5px;
-  display: flex;
-  margin-bottom: 10px;
-  padding-left: 5px;
-}
-.form__cartouche {
-  text-align: -webkit-center;
-}
+
+/*** BUTTON  ***/
 button {
   cursor: pointer;
   color: #494949 !important;
@@ -77,10 +77,13 @@ button:hover {
   border-color: #f6b93b !important;
   transition: all 0.4s ease 0s;
 }
+
+/*** FOOTER  ***/
 .site-footer {
   position: absolute;
+  bottom: 1;
   background-color: #26272b;
-  padding: 30px 0 200px;
+  padding: 30px 0 100px;
   font-size: 15px;
   line-height: 24px;
   color: #737373;
@@ -99,7 +102,26 @@ button:hover {
   margin-top: 5px;
   letter-spacing: 2px;
 }
+.footer_logo{
+      width: 150px;
+    height: 100px;
+    align-self: center;
+}
+.footer_link{
+  display: flex;
+    justify-content: center;
+}
+.netlink{
+  display: flex;
+    flex-direction: column;
+padding: 1em;
+}
+.footer_netlink{
+  color: white;
+      margin-top: 10px;
+}
 
+/*** MODIFY VUE  ***/
 .user_menu {
   display: flex;
   flex-direction: column;
@@ -109,13 +131,71 @@ button:hover {
 .modifyInfo {
   border-radius: 5em;
 }
+
+/*** LINK  ***/
 a {
   text-decoration: none;
-  color: #494949 !important;
+  color: #494949;
 }
 a:hover
 {
 text-decoration: underline;
 color: #224061;
 }
+
+/*** GENERAL VUE  ***/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+.text-center{
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+margin-bottom: 25%;
+    background-color: white;
+	border-radius: 2em;
+	padding:70px 100px;
+      margin-left: 20%;
+    margin-right: 20%;
+        border-radius: 2em
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+  pointer-event:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  padding: 10px;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:2px solid #fecdce;	
+}
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+}
+input[type="password"]
+{
+  -webkit-text-security: disc;
+}
+
 </style>
