@@ -116,8 +116,8 @@ button:hover {
   letter-spacing: 2px;
 }
 .footer_logo {
-  width: 100px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   align-self: center;
 }
 .footer_link {
@@ -223,6 +223,10 @@ input[type="password"] {
   }
   .site-footer {
     border-radius: 2em 2em 0em 0em;
+  }
+  .footer_logo {
+  width: 100px;
+  height: 75px;
   }
 }
 </style>
