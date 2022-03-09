@@ -1,7 +1,5 @@
 <template>
-<a href="/" >
   <img class="top_logo" alt="logo top grouporama" src="./assets/logo.png" />
-</a>
   <router-view />
   <footer class="site-footer">
     <div class="container">
@@ -16,20 +14,38 @@
           </p>
         </div>
       </div>
-      <hr/>
-                  <h6>Link</h6>      
+      <hr />
+      <h6>Link</h6>
       <div class="footer_link">
         <div class="netlink">
-          <a href="https://github.com/YnnATD/P7_Yoann_ASTRED" >
-      <img class="footer_logo" alt="logo github" src="./assets/logogithub.png">
-      </a>
-      <a class="footer_netlink" href="https://github.com/YnnATD/P7_Yoann_ASTRED">Repositorie github</a>
-      </div>
-        <div class="netlink">      
-          <a href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P7/Groupomania_Specs_FR_DWJ_VF.pdf" >
-        <img class="footer_logo" alt="logo top grouporama" src="./assets/logogroupo.png" />
-        </a>
-      <a class="footer_netlink" href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P7/Groupomania_Specs_FR_DWJ_VF.pdf">Spécifications fonctionnelles</a>
+          <a href="https://github.com/YnnATD/P7_Yoann_ASTRED">
+            <img
+              class="footer_logo"
+              alt="logo github"
+              src="./assets/logogithub.png"
+            />
+          </a>
+          <a
+            class="footer_netlink"
+            href="https://github.com/YnnATD/P7_Yoann_ASTRED"
+            >Repositorie github</a
+          >
+        </div>
+        <div class="netlink">
+          <a
+            href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P7/Groupomania_Specs_FR_DWJ_VF.pdf"
+          >
+            <img
+              class="footer_logo"
+              alt="logo top grouporama"
+              src="./assets/logogroupo.png"
+            />
+          </a>
+          <a
+            class="footer_netlink"
+            href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P7/Groupomania_Specs_FR_DWJ_VF.pdf"
+            >Spécifications fonctionnelles</a
+          >
         </div>
       </div>
     </div>
@@ -43,7 +59,6 @@
 body {
   background-color: #fecdce;
   margin: 0;
-  min-width: max-content;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -55,7 +70,7 @@ body {
 
 /*** IMAGE TOP  ***/
 .top_logo {
-  height: 300px;
+  height: 250px;
 }
 
 /*** BUTTON  ***/
@@ -80,8 +95,6 @@ button:hover {
 
 /*** FOOTER  ***/
 .site-footer {
-  position: absolute;
-  bottom: 1;
   background-color: #26272b;
   padding: 30px 0 100px;
   font-size: 15px;
@@ -102,23 +115,23 @@ button:hover {
   margin-top: 5px;
   letter-spacing: 2px;
 }
-.footer_logo{
-      width: 150px;
-    height: 100px;
-    align-self: center;
+.footer_logo {
+  width: 150px;
+  height: 100px;
+  align-self: center;
 }
-.footer_link{
+.footer_link {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
-.netlink{
+.netlink {
   display: flex;
-    flex-direction: column;
-padding: 1em;
+  flex-direction: column;
+  padding: 1em;
 }
-.footer_netlink{
+.footer_netlink {
   color: white;
-      margin-top: 10px;
+  margin-top: 10px;
 }
 
 /*** MODIFY VUE  ***/
@@ -137,65 +150,79 @@ a {
   text-decoration: none;
   color: #494949;
 }
-a:hover
-{
-text-decoration: underline;
-color: #224061;
+a:hover {
+  text-decoration: underline;
+  color: #224061;
 }
 
 /*** GENERAL VUE  ***/
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext");
 
-.text-center{
-	text-transform:uppercase;
-    font-size: 23px;
-    margin: -50px 0 80px 0;
-    display: block;
-    text-align: center;
+.text-center {
+  text-transform: uppercase;
+  font-size: 23px;
+  margin: -50px 0 80px 0;
+  display: block;
+  text-align: center;
 }
-.box{
-margin-bottom: 25%;
-    background-color: white;
-	border-radius: 2em;
-	padding:70px 100px;
-      margin-left: 20%;
-    margin-right: 20%;
-        border-radius: 2em
+.box {
+  margin-bottom: 25%;
+  background-color: white;
+  border-radius: 2em;
+  padding: 70px 100px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 2em;
 }
-.input-container{
-	position:relative;
-	margin-bottom:25px;
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
 }
-.input-container label{
-	position:absolute;
-	top:0px;
-	left:0px;
-	font-size:16px;
-  pointer-event:none;
-	transition: all 0.5s ease-in-out;
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  pointer-event: none;
+  transition: all 0.5s ease-in-out;
 }
-.input-container input{ 
-  border:0;
-  border-bottom:1px solid #555;  
-  background:transparent;
-  width:100%;
-  padding:8px 0 5px 0;
-  font-size:16px;
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
   padding: 10px;
 }
-.input-container input:focus{ 
- border:none;	
- outline:none;
- border-bottom:2px solid #fecdce;	
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fecdce;
 }
 .input-container input:focus ~ label,
-.input-container input:valid ~ label{
-	top:-12px;
-	font-size:12px;
+.input-container input:valid ~ label {
+  top: -12px;
+  font-size: 12px;
 }
-input[type="password"]
-{
+input[type="password"] {
   -webkit-text-security: disc;
 }
-
+/*** medias queries ***/
+@media screen and (max-width: 580px) {
+  .footer_link {
+    flex-direction: column;
+  }
+  .box {
+    margin: 0px;
+    margin-bottom: 10em;
+    background-color: white;
+    border-radius: 2em;
+    padding: 70px 40px;
+    border-radius: 2em;
+  }
+  .site-footer {
+    border-radius: 2em 2em 0em 0em;
+  }
+}
 </style>
