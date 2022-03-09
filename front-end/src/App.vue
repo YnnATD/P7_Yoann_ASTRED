@@ -116,8 +116,8 @@ button:hover {
   letter-spacing: 2px;
 }
 .footer_logo {
-  width: 150px;
-  height: 100px;
+  width: 100px;
+  height: 75px;
   align-self: center;
 }
 .footer_link {
